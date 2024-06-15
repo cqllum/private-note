@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opened Note</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .note-box {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        p {
+            margin: 20px 0;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="note-box">
+        <h1>Opened Note</h1>
+        <p>{{ note_text }}</p>
+        <p>Note has been opened and marked as read.</p>
+    </div>
+</body>
+</html>

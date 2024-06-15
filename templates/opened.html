@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Opened</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .page-open-box {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #fff;
+        }
+
+        p {
+            margin: 20px 0;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-open-box">
+        <h1>Note doesn't exist</h1>
+        <p>This note either doesn't exist, or has already been opened!</p>
+        <a href="{{ request.url_root }}">Create another note</a>
+    </div>
+</body>
+</html>

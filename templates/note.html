@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .note-box {
+            background-color: #ffd700;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin: 20px 0;
+            color: #555;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .url-access {
+            background: white;
+            width: 80%;
+            padding: 15px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .copy-feedback {
+            color: #4caf50;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="note-box">
+        <h1>Share this note!</h1>
+        <center>
+            <span class="copy-feedback" id="copyFeedback">Copied to clipboard!</span>
+            <p id="urlAccess" class="url-access" onclick="copyToClipboard('{{ request.url_root }}open_note/{{ secret_key }}')">
+                {{ request.url_root }}open_note/{{ secret_key }}
+            </p>
+        </center>
+        <a href="{{ request.url_root }}">Create another note</a>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            // Show copy feedback
+            const copyFeedback = document.getElementById('copyFeedback');
+            copyFeedback.style.display = 'inline';
+            setTimeout(() => {
+                copyFeedback.style.display = 'none';
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
